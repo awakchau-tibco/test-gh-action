@@ -1,12 +1,13 @@
 name: "Enforce branch naming conventions for PR"
 on:
   pull_request:
+    types: [synchronize, opened, reopened, edited]
 jobs:
   validatePR:
     runs-on: ubuntu-latest
     steps:
       - name: Enforce PR Rules
-        uses: abhijitWakchaure/branch-name-enforcing-action@v1.0.1
+        uses: abhijitWakchaure/branch-name-enforcing-action@v1.1.0
         with:
           # The pattern to match release branches
           release-branch-pattern: '^flogo-2.[\d]{2}.[\d]{1,2}(-hf[1-9]){0,1}$'
